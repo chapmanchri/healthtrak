@@ -10,18 +10,15 @@
       <th style=color:#778899; >Date</th>
       <th>Event</th>
       <th>Notes</th>
-      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td style=color:#778899; ><%= event.eventdate.strftime('%a %m/%d/%Y') %></td>
+        <td><%= link_to event.eventdate.strftime('%a %m/%d/%Y'), event %></td>
 		<td><%= event.event %></td>
         <td><%= event.notes %></td>
-        <td><%= link_to '', event, html_options = {class: "fa fa-pencil-square-o"} %></td>
-        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +26,4 @@
 
 <br>
 
-<%= link_to '+ New Event', new_event_path, html_options={class: "btn btn-success btn-xs"} %>
+<%= link_to '+ New Event', new_event_path, html_options={class: "btn btn-success"} %>
