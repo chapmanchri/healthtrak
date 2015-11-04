@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron">
-<h1>HealthTraks</h1>
+	<h1>HealthTraks</h1>
+</div>
+
+<div class="event_button">
+		<%= link_to '+ New Event', new_event_path, html_options={class: "btn btn-success"} %>
 </div>
 
 <table class="table table-striped table-hover">
@@ -18,12 +22,10 @@
       <tr>
         <td><%= link_to event.eventdate.strftime('%a %m/%d/%Y'), event %></td>
 		<td><%= event.event %></td>
-        <td><%= event.notes %></td>
+        <td><%= event.notes.truncate(30) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to '+ New Event', new_event_path, html_options={class: "btn btn-success"} %>
