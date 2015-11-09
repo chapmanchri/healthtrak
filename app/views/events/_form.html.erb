@@ -12,18 +12,20 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :eventdate %>
+  </div>
+
+  <div class="field">
     <%= f.label :event %><br>
     <%= f.text_field :event %>
   </div>
-  <div class="field">
-    <%= f.label :eventdate %><br>
-    <%= f.date_select :eventdate %>
-  </div>
+
   <div class="field">
     <%= f.label :notes %><br>
-    <%= f.text_field :notes %>
+    <%= f.text_area :notes %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn btn-success'%>
   </div>
 <% end %>
