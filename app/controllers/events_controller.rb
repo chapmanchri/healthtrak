@@ -1,6 +1,22 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+
+  def list
+    @user = User.find_by_id(1)
+    @events = @user.events.all
+  end
+
+  def list_by_name
+    # @pin = Pin.find_by_slug(params[:slug])
+    @user = User.find_by_id(params[:id])
+    # @user = User.find_by_id(1)
+    @events = @user.events.all
+    render :list_by_name
+    # @pin = Pin.find_by_slug(params[:slug])
+    # render :show
+  end
+
   # GET /events
   # GET /events.json
   def index
@@ -10,6 +26,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    #going to have to find the user here
+    #this means create the login and the session
+    @user = User.find(@event.user_id)
   end
 
   # GET /events/new
