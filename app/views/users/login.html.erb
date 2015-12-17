@@ -1,0 +1,28 @@
+<div class="jumbotron">
+	<h1>HealthTraks<br><small><i>Please Login</i></small></h1>
+
+</div>
+
+<%= form_tag("/login") do %>
+
+<% if !@errors.empty? %>
+  <div id="error_explanation">
+    <h2><%= @errors %></h2>
+  </div>
+<% end %>
+
+  <div class="form-group">
+    <%= label_tag(:email, "Email:") %>
+    <input id="email" name="email" type="text" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag(:password, "Password:") %>
+    <input id="password" name="password" type="text" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <input class="btn btn-success" name="commit" type="submit" value="Submit" />
+  </div>
+
+<% end %>

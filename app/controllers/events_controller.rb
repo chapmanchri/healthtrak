@@ -9,7 +9,8 @@ class EventsController < ApplicationController
 
   def list_by_name
     # @pin = Pin.find_by_slug(params[:slug])
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(session[:user_id])
+    puts "#{@user.id} x" * 100
     # @user = User.find_by_id(1)
     @events = @user.events.all
     render :list_by_name
@@ -33,11 +34,16 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    @user = User.find_by_id(session[:user_id])
+    puts "in new event" * 100
     @event = Event.new
+    @event.user_id = session[:user_id]
+    puts " #{@event.user_id}" * 25
   end
 
   # GET /events/1/edit
   def edit
+    @user = User.find_by_id(session[:user_id])
   end
 
   # POST /events
@@ -75,10 +81,11 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to list_by_name_path, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -88,6 +95,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event, :eventdate, :notes)
+      params.require(:event).permit(:event, :eventdate, :notes, :user_id)
     end
 end

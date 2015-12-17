@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron">
-	<h1>HealthTraks<br><small><i>for <%= @user.patient_name  %></i></small></h1>
+	<h1>HealthTraks II<br><small><i>for <%= @user.patient_name  %></i></small></h1>
 
 </div>
 
@@ -21,9 +21,9 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.eventdate.strftime('%a %m/%d/%Y'), event %></td>
+        <td><%= link_to event.eventdate.strftime('%a %m/%d/%Y'), edit_event_path(event.id) %></td>
     <td><%= event.event %></td>
-        <td><%= event.notes.truncate(30) %></td>
+        <td><%= event.notes.truncate(40) %></td>
       </tr>
     <% end %>
   </tbody>

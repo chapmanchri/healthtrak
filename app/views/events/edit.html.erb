@@ -1,5 +1,6 @@
-<h1>HealthTraks<br><small><i>Edit this Entry</i></small></h1>
+<h4>HealthTraks<br><small><i>View, edit, or delete this entry</i></small></h4>
 <hr>
-<%= link_to ' Cancel and go back to your list', events_path, html_options = { class: "btn btn-danger"} %>
-<hr>
+<%= link_to ' Cancel and go back', list_by_name_path, html_options = { class: "btn btn-warning"} %>
+<%= link_to ' Delete this entry',  @event, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"%>
+
 <%= render 'form' %>

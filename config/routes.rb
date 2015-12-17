@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, except: [:index]
+
+  # get 'event/:id/edit' =>
+
+  get 'events/new' => 'events#new'
 
   get 'events/:id' => 'events#list_by_name', as: 'list_by_name'
+
+  get 'signup' => "users#new", as: :signup
+
+  get 'login' => "users#login", as: :login
+
+  post 'login' => "users#authenticate"
+
 
   resources :events
 
@@ -11,9 +22,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'events#index'
-
+  # root 'events#index'
+  # root list_by_name_path
+  # root 'events#list_by_name'
   #get '/events/list' => 'events#list'
+  root 'users#login'
 
 
 
