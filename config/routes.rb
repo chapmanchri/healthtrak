@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'events/:id' => 'events#list_by_name', as: 'list_by_name'
 
+  get '/events' => "users#login"
+
   get 'signup' => "users#new", as: :signup
 
   get 'login' => "users#login", as: :login
@@ -31,6 +33,8 @@ Rails.application.routes.draw do
 
 
   get '/:parms' => "users#login"
+
+
 
   get '/list' => 'events#list'
 
