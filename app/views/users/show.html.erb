@@ -1,12 +1,16 @@
+<div class="page-header">
+<h3>HealthTraks<br><small><i>Your Profile</i></small></h4>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Your email:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Password:</strong>
+  <strong>Your password:</strong>
   <%= @user.password %>
 </p>
 
@@ -15,5 +19,5 @@
   <%= @user.patient_name %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning" %>
+<%= link_to 'Login', login_path, class: "btn btn-primary" %>

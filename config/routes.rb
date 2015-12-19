@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
 
+
+  root 'users#login'
   # get 'event/:id/edit' =>
 
   get 'events/new' => 'events#new'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 
   post 'login' => "users#authenticate"
 
-
+  delete 'logout/id' => "users#logout", as: :logout
   resources :events
 
 
@@ -26,9 +28,9 @@ Rails.application.routes.draw do
   # root list_by_name_path
   # root 'events#list_by_name'
   #get '/events/list' => 'events#list'
-  root 'users#login'
 
 
+  get '/:parms' => "users#login"
 
   get '/list' => 'events#list'
 

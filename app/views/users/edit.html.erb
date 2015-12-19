@@ -1,6 +1,7 @@
-<h1>Editing User</h1>
+<div class="page-header">
+  <h3>HealthTraks<br><small><i>Edit Your Info</i></small></h4>
 
+</div>
+<%= link_to 'Cancel', @user, class: "btn btn-warning" %>
+<%= link_to 'Login', login_path, class: "btn btn-primary" %>
 <%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

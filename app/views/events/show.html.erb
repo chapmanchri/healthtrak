@@ -5,7 +5,7 @@
 <div class="menu-bar">
 	<%= link_to ' Edit', edit_event_path(@event), html_options = { class: "btn btn-success" } %>
 	<%= link_to ' Back to List', events_path, html_options = { class: "btn btn-success"} %>
-	<%= link_to ' Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success" %>
+	<%= link_to ' Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
 </div>
 
 <p id="notice"><%= notice %></p>

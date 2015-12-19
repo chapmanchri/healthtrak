@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # before_action :require_login, only: [:show, :edit, :update, :destroy]
 
@@ -9,13 +11,17 @@ class UsersController < ApplicationController
       render :login
     else
       session[:user_id] = @user.id
-      # redirect_to user_path(@user)
-      redirect_to list_by_name_path(session[:user_id])
+      redirect_to '/events/session[:user_id]'
     end
   end
 
   def login
     @errors = ""
+  end
+
+  def logout
+    session.delete(:user_id)
+    redirect_to login_path
   end
 
   def index
@@ -25,6 +31,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
   end
 
   # GET /users/new
@@ -43,6 +50,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        puts "in user.save #{current_user.id}" * 100
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
