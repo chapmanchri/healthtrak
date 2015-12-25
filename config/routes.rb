@@ -1,16 +1,4 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-
-  get 'static_pages/help'
-
-  get 'static_pages/terms'
-
-  get 'static_pages/privacy'
-
-  resources :pages
-
-  resources :users, except: [:index]
-
 
   root 'users#login'
 
