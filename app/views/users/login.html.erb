@@ -1,7 +1,10 @@
 <div class="jumbotron">
-	<h1>HealthTraks (beta version)<br><small><i>Please Login Below</i></small></h1>
-	<h2>or <%= link_to 'Create Account', signup_path, class: "btn btn-primary" %></h2>
+	<h1>HealthTraks (beta version)<br><small><i>Welcome!</i></small></h1>
 </div>
+
+<h2>Login below <small>or</small> <%= link_to 'Create Your Account', signup_path, class: "btn btn-primary" %></h2>
+
+
 
 <%= form_tag("/login") do %>
 
@@ -12,7 +15,7 @@
 <% end %>
 
   <div class="form-group">
-    <%= label_tag(:email, "Email:") %>
+    <%= label_tag(:email, "Enter your email address:") %>
     <input id="email" name="email" type="text" class="form-control"/>
   </div>
 
@@ -23,6 +26,7 @@
 
   <div class="form-group">
     <input class="btn btn-success" name="commit" type="submit" value="Login" />
+
   </div>
 
 <% end %>
