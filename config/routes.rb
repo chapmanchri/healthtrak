@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pages
+
   resources :users, except: [:index]
 
 
@@ -19,6 +21,10 @@ Rails.application.routes.draw do
   delete 'logout/id' => "users#logout", as: :logout
 
   resources :events
+
+  get ':permalink' => "pages#show"
+
+  resources :pages
 
 
   # The priority is based upon order of creation: first created -> highest priority.
