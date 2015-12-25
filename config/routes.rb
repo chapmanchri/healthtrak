@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
 
   root 'users#login'
-  # get 'event/:id/edit' =>
 
   get 'events/new' => 'events#new'
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   post 'login' => "users#authenticate"
 
   delete 'logout/id' => "users#logout", as: :logout
+
   resources :events
 
 

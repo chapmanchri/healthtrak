@@ -25,10 +25,17 @@
 
   <div class="form-group">
     <div class="field">
-      <%= f.label :patient_name %><br>
-      <%= f.text_field :patient_name, class: "form-control"  %>
+      <%= f.label :patient_name %> (optional)<br>
+      <%= f.text_field :patient_name, class: "form-control" %>
     </div>
   </div>
+
+  <div class="form-group">
+    <div class="field">
+      <p><%= f.check_box :acceptance %> I agree to the HealthTrak Terms of Service and Privacy Policy</p>
+    </div>
+  </div>
+
     <div class="actions">
       <%= f.submit 'Submit', :class => 'btn btn-success'%>
     </div>
