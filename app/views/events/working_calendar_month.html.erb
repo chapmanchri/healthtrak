@@ -8,7 +8,7 @@
 </div>
 
 <%= month_calendar(attribute: :eventdate, events: @events) do |date, events| %>
-	<div id="calendar-date"><%= date.day%></div>
+	<%= date %>
 
 	<% events.each do |event| %>
 		<div class="calendar-entry">
