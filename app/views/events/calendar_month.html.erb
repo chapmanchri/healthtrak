@@ -1,0 +1,18 @@
+<div class="jumbotron">
+	<h1>HealthTraks (beta)<br><small><i>Calendar</i></small></h1>
+</div>
+
+<div class="event_button">
+		<%= link_to '+ New Entry', new_event_path, html_options={class: "btn btn-success"} %>
+		<%= link_to 'List View', session[:user_id].to_s, html_options={class: "btn btn-info"} %>
+</div>
+
+<%= month_calendar(attribute: :eventdate, events: @events) do |date, events| %>
+	<%= date %>
+
+	<% events.each do |event| %>
+		<div class="calendar-entry">
+			<%= event.event %>
+		</div>
+	<% end %>
+<% end %>

@@ -7,16 +7,22 @@ Rails.application.routes.draw do
 
   get 'static_pages/privacy'
 
+  get 'static_pages/:params' => 'static_pages#home'
+
   resources :users, except: [:index]
 
 
   root 'users#login'
+
+  get 'events/calendar_month' => "events#calendar_month"
 
   get 'events/new' => 'events#new'
 
   get 'events/:id' => 'events#list_by_name', as: 'list_by_name'
 
   get '/events' => "users#login"
+
+  get 'events/:params' => "users#login"
 
   get 'signup' => "users#new", as: :signup
 

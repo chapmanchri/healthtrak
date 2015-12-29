@@ -2,6 +2,10 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
 
+  def calendar_month
+    @events = Event.where(:user_id => current_user.id)
+  end
+
   def list
     @user = User.find_by_id(1)
     @events = @user.events.all

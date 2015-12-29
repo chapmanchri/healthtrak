@@ -51,4 +51,7 @@ end
 
 gem 'rspec'
 gem 'rspec-rails'
+#password encryption
 gem 'bcrypt', '~> 3.1.7'
+#calendar function
+gem 'simple_calendar', '~> 2.0'
