@@ -55,3 +55,5 @@ gem 'rspec-rails'
 gem 'bcrypt', '~> 3.1.7'
 #calendar function
 gem 'simple_calendar', '~> 2.0'
+#bootstrap
+gem 'bootstrap-sass', '3.2.0.0'
