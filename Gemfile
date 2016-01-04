@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the web server
-gem 'puma'
+gem 'puma',   '2.11.1'
 
 # Use 12factor to ensure best practices for modern web apps
 # Log to stdout instead of a log file
