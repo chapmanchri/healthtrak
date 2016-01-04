@@ -9,19 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <%= render 'layouts/header' %>
 	<div class="container">
-    <div class="pull-right">
-      <h5>
-        <% if session[:user_id]%>
-          <%= "#{current_user.email}" %> |
-          <%= link_to "Logout", logout_path(current_user), method: :delete %>
-        <% end %>
-      </h5>
-    </div>
+
+      <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
 		<%= yield %>
 	<div class="footer">
 		<hr>
-		<p style=color:#778899;><i>Healthtraks</i> &copy; 2016 by ChapApptive. All rights reserved. <%= link_to ' Terms of Service', '/static_pages/terms', html_options = { target: "_blank"} %> and <%= link_to ' Privacy Policy', '/static_pages/privacy', html_options = { target: "_blank"} %>.</p>
+		<p style=color:#778899;><i>Healthtraks</i> &copy; 2016 by ChapApptive. All rights reserved. <%= link_to ' Terms of Service', '/terms', html_options = { target: "_blank"} %> and <%= link_to ' Privacy Policy', '/privacy', html_options = { target: "_blank"} %>.</p>
 	</div>
 
     <%= debug(params) if Rails.env.development? %>

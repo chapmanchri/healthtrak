@@ -1,18 +1,29 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
 
-  get 'static_pages/help'
 
-  get 'static_pages/terms'
+  get 'sessions/new'
 
-  get 'static_pages/privacy'
+  root  'static_pages#home'
+
+  get "home" => 'static_pages#home'
+
+  get  "help" => 'static_pages#help'
+
+  get  "terms" => 'static_pages#terms'
+
+  get  "privacy" => 'static_pages#privacy'
 
   get 'static_pages/:params' => 'static_pages#home'
 
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
   resources :users, except: [:index]
 
+  resources :account_activations, only: [:edit]
 
-  root 'users#login'
+  # root 'users#login'
 
   get 'events/calendar_month' => "events#calendar_month"
 
@@ -26,11 +37,11 @@ Rails.application.routes.draw do
 
   get 'signup' => "users#new", as: :signup
 
-  get 'login' => "users#login", as: :login
+  # get 'login' => "users#login", as: :login
 
-  post 'login' => "users#authenticate"
+  # post 'login' => "users#authenticate"
 
-  delete 'logout/id' => "users#logout", as: :logout
+  # delete 'logout/id' => "users#logout", as: :logout
 
   resources :events
 
