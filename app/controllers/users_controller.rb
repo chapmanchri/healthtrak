@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to Healthtraks!"
-      redirect_to @user
+      redirect_to '/events/user.id'
     else
       render 'new'
     end

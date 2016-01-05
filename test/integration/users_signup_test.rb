@@ -22,7 +22,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       acceptance: true
     }
     end
-    assert_template 'users/show'
+    assert_template 'events/list_by_name'
+    assert is_logged_in?
   end
 
 end
