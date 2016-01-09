@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: {case_sensitive: false }
   has_secure_password
-  validates :password, length: { minimum: 6}
-  validates_presence_of :password, :email, :acceptance
+  validates :password, length: { minimum: 6}, allow_nil: true
+  # validates_presence_of :email, :acceptance
+  validates_presence_of :acceptance, allow_nil: true
 
   # Returns the hash digest of a given string.
   def User.digest(string)

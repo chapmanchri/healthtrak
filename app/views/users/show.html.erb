@@ -10,14 +10,6 @@
 </p>
 
 <p>
-  <strong>Your password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
-  <strong>Patient name:</strong>
+  <strong>I'm tracking for:</strong>
   <%= @user.patient_name %>
 </p>
-
-<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning" %>
-<%= link_to 'Login', login_path, class: "btn btn-primary" %>

@@ -3,7 +3,7 @@
 
 </div>
 <%= link_to 'Cancel', @user, class: "btn btn-warning" %>
-<%= link_to 'Login', login_path, class: "btn btn-primary" %>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -43,11 +43,8 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="field">
-      <p><%= f.check_box :acceptance %> <strong>I agree</strong> to the <i>HealthTraks</i> <%= link_to ' Terms of Service', '/static_pages/terms', html_options = { target: "_blank"} %> and <%= link_to ' Privacy Policy', '/static_pages/privacy', html_options = { target: "_blank"} %></p>
-    </div>
-  </div>
+
+
 
     <div class="actions">
       <%= f.submit 'Make change', :class => 'btn btn-success'%>
