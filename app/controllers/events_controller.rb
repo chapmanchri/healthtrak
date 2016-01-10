@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :show, :destroy]
 
 
   def calendar_month
@@ -100,5 +101,11 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:event, :eventdate, :notes, :user_id)
+    end
+
+    def correct_user
+      @user = User.find(Event.find(params[:id]).user_id)
+      redirect_to(root_url) unless current_user?(@user)
+      # redirect_to(root_url) unless @user == current_user
     end
 end
