@@ -1,31 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>HealthTrak Users</h1>
+<h1>All HealthTrak Users</h1>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Patient name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= will_paginate %>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= user.patient_name %></td>
-        <td><%= link_to 'List Entries', list_by_name_path(user.id) %></td>
-        <td><%= link_to 'Edit Profile', edit_user_path(user) %></td>
-        <!-- <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="users">
 
-<br>
+      <%= render @users %>
 
-<%= link_to 'New User', new_user_path %>
+</ul>
+
+<%= will_paginate %>
