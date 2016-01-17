@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-
+  root  'static_pages#home'
   get 'users/index' => "users#index"
 
   get 'sessions/new'
-
-  root  'static_pages#home'
 
   get "home" => 'static_pages#home'
 
