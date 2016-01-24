@@ -16,6 +16,7 @@
 
       <div class="form-group">
         <%= f.label :password %>
+				<%= link_to "(forgot password)", new_password_reset_path %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
 
@@ -34,4 +35,3 @@
       <p>New user? <%= link_to "Sign up now!", signup_path %></p>
 
 </div>
-
